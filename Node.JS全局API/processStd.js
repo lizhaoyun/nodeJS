@@ -1,20 +1,21 @@
-var i = 0;
+var i = 1;
 var arr=["Name","Email","QQ","Mobile"];
-var value=new Array(4);
 var obj={
-    Name:"",
-    Email:"",
-    QQ:"",
-    Mobile:""
+    "Name":"",
+    "Email":"",
+    "QQ":"",
+    "Mobile":""
 }
-console.log(arr[i]+":");
+console.log(arr[0]+":");
 process.stdin.on('data', function(data){
-   value[i]=data.toString()
-    i++;
-
+    obj[arr[i-1]]=data.toString("utf8").trim();
     if(i==4){
-        console.log(value[0],value[1],value[2],value[3]);
+        console.log(obj);
         process.exit();
     }
+    else{
+        console.log(arr[i++]+":");
+    }
+    
     
 });
