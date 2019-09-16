@@ -1,6 +1,5 @@
 const radio = require("./radio.js").radio;
-const events= require("events");
-const EventEmitter = events.EventEmitter;
+
 var name = process.argv[2];
 var hz = process.argv[3];
 

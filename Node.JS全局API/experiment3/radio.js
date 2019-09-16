@@ -1,4 +1,5 @@
 const EventEmitter = require("events").EventEmitter;
+const util=require("util");
 
 function Radio(name,hz){
     EventEmitter.call(this);
