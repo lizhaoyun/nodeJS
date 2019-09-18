@@ -1,26 +1,16 @@
 const EventEmitter = require("events").EventEmitter;
 const util=require("util");
 
-function Radio(name,hz){
+function Radio(station){
     EventEmitter.call(this);
-    this.name=name;
-    this.hz = hz;
+    setTimeout(()=>{
+        this.emit("open",station);
+    },0);
+    setTimeout(()=>{
+        this.emit('stop',station);
+    },5000);
 }
-Radio.prototype.__proto__ = EventEmitter.prototype;
-Radio.prototype.play= function(){
-    console.log("打开radio");
-    setTimeout(() => {
-        console.log("lalala");
-        this.emit("close");
-    }, 2000);
-    
-}
-Radio.prototype.stop= function(){
-    // this.emit("close");
-    console.log("关闭radio");
-    
-}
+util.inherits(Radio,EventEmitter);
 
-module.exports={
-    radio:Radio
-}
+module.exports=Radio
+

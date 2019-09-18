@@ -1,14 +1,16 @@
-const radio = require("./radio.js").radio;
+const Radio = require("./radio.js");
+const station={
+    hz:'106.7',
+    name:'music radio'
+};
 
-var name = process.argv[2];
-var hz = process.argv[3];
 
-var ra1 = new radio(name,hz);
+var ra1 = new Radio(station);
 ra1.emit("open");
-ra1.on("open",function(){
-    ra1.play();
+ra1.on("open",(station)=>{
+    console.log('"%s" FM %s opened', station.name, station.hz);
+    console.log("lalala...");
 })
-ra1.emit("close");
-ra1.on("close",function(){
-     ra1.stop();
+ra1.on("stop",(station)=>{
+    console.log('"%s" FM %s closed', station.name,station.hz);
 });
