@@ -1,5 +1,5 @@
 
-var obj ={
+var o ={
     circumference:function(r){
         console.log(2*Math.PI*r);
     },
@@ -9,5 +9,5 @@ var obj ={
 }
 
 module.exports={
-    obj:obj
+    obj:o
 }

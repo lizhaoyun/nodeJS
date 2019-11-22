@@ -40,7 +40,9 @@ http.createServer((req,res)=>{
     
                         }
                         else{
-                            res.write(data.toString());
+                            res.writeHead(200,{"Content-Type":"text/html;charset=utf-8"});
+                            // res.write(data.toString());
+                            res.write(data);
                             res.end();
                         } 
                     })
